@@ -4,10 +4,16 @@
  */
 package magasin;
 
+import com.mysql.jdbc.PreparedStatement;
+import database.CConnection;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import javax.swing.JFrame;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author asus
@@ -34,38 +40,49 @@ public class Inscrire extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabelExit = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField3 = new javax.swing.JPasswordField();
+        firstname = new javax.swing.JTextField();
+        lastname = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
+        cpassword = new javax.swing.JPasswordField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonAnnuler = new javax.swing.JButton();
+        jButtonInscrire = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3Connecter = new javax.swing.JLabel();
+        kPassword = new javax.swing.JLabel();
+        confirmation = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
 
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\asus\\Desktop\\magasin projet\\aaaaaa.png")); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(77, 77, 77));
@@ -93,25 +110,25 @@ public class Inscrire extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(236, 240, 241));
         jLabel5.setText("Nom:");
 
-        jTextField1.setBackground(new java.awt.Color(108, 122, 137));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.setOpaque(false);
+        firstname.setBackground(new java.awt.Color(108, 122, 137));
+        firstname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        firstname.setOpaque(false);
 
-        jTextField2.setBackground(new java.awt.Color(108, 122, 137));
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField2.setOpaque(false);
+        lastname.setBackground(new java.awt.Color(108, 122, 137));
+        lastname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lastname.setOpaque(false);
 
-        jTextField3.setBackground(new java.awt.Color(108, 122, 137));
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField3.setOpaque(false);
+        username.setBackground(new java.awt.Color(108, 122, 137));
+        username.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        username.setOpaque(false);
 
-        jPasswordField1.setBackground(new java.awt.Color(108, 122, 137));
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPasswordField1.setOpaque(false);
+        password.setBackground(new java.awt.Color(108, 122, 137));
+        password.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        password.setOpaque(false);
 
-        jPasswordField3.setBackground(new java.awt.Color(108, 122, 137));
-        jPasswordField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPasswordField3.setOpaque(false);
+        cpassword.setBackground(new java.awt.Color(108, 122, 137));
+        cpassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cpassword.setOpaque(false);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(236, 240, 241));
@@ -129,13 +146,23 @@ public class Inscrire extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(236, 240, 241));
         jLabel15.setText("Utilisateur:");
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 153));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setText("Annuler");
+        jButtonAnnuler.setBackground(new java.awt.Color(0, 153, 153));
+        jButtonAnnuler.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonAnnuler.setText("Annuler");
+        jButtonAnnuler.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAnnulerMouseClicked(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 51));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setText("S'inscrire");
+        jButtonInscrire.setBackground(new java.awt.Color(255, 0, 51));
+        jButtonInscrire.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonInscrire.setText("S'inscrire");
+        jButtonInscrire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonInscrireMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,12 +170,17 @@ public class Inscrire extends javax.swing.JFrame {
 
         jLabel3Connecter.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3Connecter.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3Connecter.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3Connecter.setText("Cliquez ici pour vous identifier");
         jLabel3Connecter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3ConnecterMouseClicked(evt);
             }
         });
+
+        kPassword.setForeground(new java.awt.Color(255, 51, 51));
+
+        confirmation.setForeground(new java.awt.Color(0, 153, 51));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,17 +206,19 @@ public class Inscrire extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3Connecter, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(confirmation, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(kPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jButtonAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                    .addComponent(jButtonInscrire, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lastname, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(firstname, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(username, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cpassword, javax.swing.GroupLayout.Alignment.LEADING)))))
+                .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,31 +236,35 @@ public class Inscrire extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addGap(24, 24, 24)
+                .addGap(1, 1, 1)
+                .addComponent(kPassword)
+                .addGap(10, 10, 10)
+                .addComponent(confirmation)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonInscrire, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3Connecter)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -267,6 +305,74 @@ public class Inscrire extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel3ConnecterMouseClicked
 
+    private void jButtonAnnulerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnulerMouseClicked
+        // TODO add your handling code here:
+        firstname.setText("");
+        lastname.setText("");
+        username.setText("");
+        password.setText("");
+        cpassword.setText("");
+    }//GEN-LAST:event_jButtonAnnulerMouseClicked
+
+    private void jButtonInscrireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonInscrireMouseClicked
+        // TODO add your handling code here:
+        
+       String firstName= firstname.getText();
+       String lastName= lastname.getText();
+       String Username= username.getText();
+       String Password= password.getText();
+       String CPassword= cpassword.getText();
+
+       if(Username.equals(""))
+       {
+            JOptionPane.showMessageDialog(null,"Ajouter l'utilisateur !");
+       }
+       if(Password.equals(""))
+       {
+            JOptionPane.showMessageDialog(null,"Ajouter un mot de passe !");
+       }
+       if(CPassword.equals(""))
+       {
+            JOptionPane.showMessageDialog(null,"Confirmer le mot de passe !");
+       }
+       //if ( Password != CPassword){
+         //  kPassword.setText("Erreur de confirmation de mot de passe !");
+       //
+       //else if ( Password.equals(CPassword)){
+         //  confirmation.setText("Vous venez d'enregistrer"+firstName);
+       //}
+       
+       //PreparedStatement stat;
+       else {
+           String query="INSERT INTO `login`(`firstName`, `lastName`, `username`, `password`, `cpassword`) VALUES (?,?,?,?,?)";
+       
+       try {
+           Class.forName("com.mysql.jdbc.Driver");
+           Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/magasin","root","");       
+           PreparedStatement stat=(PreparedStatement) con.prepareStatement(query);
+           
+           //stat= CConnection.getConnection().prepareStatement(query);
+           stat.setString(1,firstName );
+           stat.setString(2,lastName);
+           stat.setString(3,Username);
+           stat.setString(4,Password);
+           stat.setString(5,CPassword);
+           
+           if(stat.executeUpdate() > 0){
+               JOptionPane.showMessageDialog(null,"Utilisateur ajouté avec succès");
+               firstname.setText("");
+               lastname.setText("");
+               username.setText("");
+               password.setText("");
+               cpassword.setText("");
+           }                
+       }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }   
+           
+       }           
+    }//GEN-LAST:event_jButtonInscrireMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -303,8 +409,11 @@ public class Inscrire extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel confirmation;
+    private javax.swing.JPasswordField cpassword;
+    private javax.swing.JTextField firstname;
+    private javax.swing.JButton jButtonAnnuler;
+    private javax.swing.JButton jButtonInscrire;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -312,14 +421,14 @@ public class Inscrire extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3Connecter;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelExit;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel kPassword;
+    private javax.swing.JTextField lastname;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
