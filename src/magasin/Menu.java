@@ -43,9 +43,12 @@ public class Menu extends javax.swing.JFrame {
         jLabelExit = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
         jLabelDeconnecter = new javax.swing.JLabel();
-        jLabelAjoutProduit = new javax.swing.JLabel();
+        jLabelAjoutClient = new javax.swing.JLabel();
         jLabel3Connecter1 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
+        jLabelStockClients = new javax.swing.JLabel();
+        jLabelMenu = new javax.swing.JLabel();
+        jLabelAjoutProduit1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -105,13 +108,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jLabelAjoutProduit.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelAjoutProduit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelAjoutProduit.setForeground(new java.awt.Color(255, 102, 0));
-        jLabelAjoutProduit.setText("Ajouter un Produit");
-        jLabelAjoutProduit.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelAjoutClient.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelAjoutClient.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelAjoutClient.setForeground(new java.awt.Color(255, 102, 0));
+        jLabelAjoutClient.setText("Ajouter un Client");
+        jLabelAjoutClient.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelAjoutProduitMouseClicked(evt);
+                jLabelAjoutClientMouseClicked(evt);
             }
         });
 
@@ -128,6 +131,36 @@ public class Menu extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(77, 77, 77));
         jButton8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton8.setText("Santé & Beauté");
+
+        jLabelStockClients.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelStockClients.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelStockClients.setForeground(new java.awt.Color(255, 102, 0));
+        jLabelStockClients.setText("STOCK & Clients |");
+        jLabelStockClients.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelStockClientsMouseClicked(evt);
+            }
+        });
+
+        jLabelMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelMenu.setForeground(new java.awt.Color(255, 102, 0));
+        jLabelMenu.setText("Menu |");
+        jLabelMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelMenuMouseClicked(evt);
+            }
+        });
+
+        jLabelAjoutProduit1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelAjoutProduit1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelAjoutProduit1.setForeground(new java.awt.Color(255, 102, 0));
+        jLabelAjoutProduit1.setText("Ajouter un Produit |");
+        jLabelAjoutProduit1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelAjoutProduit1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,11 +184,17 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(jLabel3Connecter1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelAjoutProduit, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                        .addComponent(jLabelMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelStockClients)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelAjoutProduit1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelAjoutClient, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelDeconnecter, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelMin, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,8 +210,11 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDeconnecter)
-                    .addComponent(jLabelAjoutProduit)
-                    .addComponent(jLabel3Connecter1))
+                    .addComponent(jLabelAjoutClient)
+                    .addComponent(jLabel3Connecter1)
+                    .addComponent(jLabelStockClients)
+                    .addComponent(jLabelMenu)
+                    .addComponent(jLabelAjoutProduit1))
                 .addGap(109, 109, 109)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -220,14 +262,14 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabelDeconnecterMouseClicked
 
-    private void jLabelAjoutProduitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAjoutProduitMouseClicked
+    private void jLabelAjoutClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAjoutClientMouseClicked
         // TODO add your handling code here:
-        AjoutProduit prod=new AjoutProduit();
-        prod.setVisible(true);
+        AjoutClient cl=new AjoutClient();
+        cl.setVisible(true);
         setVisible(false);
         this.dispose();
               
-    }//GEN-LAST:event_jLabelAjoutProduitMouseClicked
+    }//GEN-LAST:event_jLabelAjoutClientMouseClicked
 
     private void jLabel3Connecter1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3Connecter1MouseClicked
         // TODO add your handling code here:
@@ -236,6 +278,25 @@ public class Menu extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabelStockClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStockClientsMouseClicked
+        // TODO add your handling code here:
+        ProduitsClients prodcl=new ProduitsClients();
+        prodcl.setVisible(true);
+        setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_jLabelStockClientsMouseClicked
+
+    private void jLabelMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMenuMouseClicked
+       Menu menu=new Menu();
+        menu.setVisible(true);
+        setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_jLabelMenuMouseClicked
+
+    private void jLabelAjoutProduit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAjoutProduit1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelAjoutProduit1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -281,10 +342,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel3Connecter1;
-    private javax.swing.JLabel jLabelAjoutProduit;
+    private javax.swing.JLabel jLabelAjoutClient;
+    private javax.swing.JLabel jLabelAjoutProduit1;
     private javax.swing.JLabel jLabelDeconnecter;
     private javax.swing.JLabel jLabelExit;
+    private javax.swing.JLabel jLabelMenu;
     private javax.swing.JLabel jLabelMin;
+    private javax.swing.JLabel jLabelStockClients;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
