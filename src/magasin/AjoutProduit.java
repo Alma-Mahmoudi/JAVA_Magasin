@@ -67,8 +67,7 @@ public class AjoutProduit extends javax.swing.JFrame {
         prix = new javax.swing.JTextField();
         date = new javax.swing.JTextField();
         etage = new javax.swing.JComboBox<>();
-        username3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        rechercheId = new javax.swing.JTextField();
         nondispo = new javax.swing.JCheckBox();
         stock = new javax.swing.JCheckBox();
         cmd = new javax.swing.JCheckBox();
@@ -77,6 +76,7 @@ public class AjoutProduit extends javax.swing.JFrame {
         jButtonModifier = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButtonRecherche = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabelAjoutClient = new javax.swing.JLabel();
@@ -195,18 +195,13 @@ public class AjoutProduit extends javax.swing.JFrame {
             }
         });
 
-        username3.setBackground(new java.awt.Color(108, 122, 137));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Recherche:");
+        rechercheId.setBackground(new java.awt.Color(108, 122, 137));
 
         nondispo.setBackground(new java.awt.Color(255, 255, 255));
         nondispo.setText("Non Disponible");
         nondispo.setOpaque(false);
 
         stock.setBackground(new java.awt.Color(255, 255, 255));
-        stock.setSelected(true);
         stock.setText("En Stock");
         stock.setOpaque(false);
 
@@ -222,6 +217,11 @@ public class AjoutProduit extends javax.swing.JFrame {
         });
 
         jButtonSupprimer.setText("Supprimer");
+        jButtonSupprimer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSupprimerMouseClicked(evt);
+            }
+        });
 
         jButtonModifier.setText("Modifier");
         jButtonModifier.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,49 +238,66 @@ public class AjoutProduit extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nom:");
 
+        jButtonRecherche.setText("Recherche");
+        jButtonRecherche.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonRechercheMouseClicked(evt);
+            }
+        });
+        jButtonRecherche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRechercheActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(95, 95, 95))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jButtonAjouter, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(etage, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nomp)
-                                .addComponent(prix)
-                                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmd)
-                                    .addComponent(nondispo)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jButtonModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(stock, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(rechercheId)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButtonSupprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(username3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButtonRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jButtonAjouter, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(etage, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nomp)
+                                        .addComponent(prix)
+                                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cmd)
+                                            .addComponent(nondispo)
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addGap(10, 10, 10)
+                                                .addComponent(jButtonModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(stock, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButtonSupprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(21, 21, 21))))
         );
         jPanel4Layout.setVerticalGroup(
@@ -319,11 +336,11 @@ public class AjoutProduit extends javax.swing.JFrame {
                     .addComponent(jButtonModifier)
                     .addComponent(jButtonSupprimer)
                     .addComponent(jButtonAjouter))
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(username3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(21, 21, 21))
+                    .addComponent(jButtonRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rechercheId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
         );
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -395,7 +412,6 @@ public class AjoutProduit extends javax.swing.JFrame {
                         .addComponent(jLabelDeconnecter, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20))))
         );
@@ -544,27 +560,31 @@ public class AjoutProduit extends javax.swing.JFrame {
             connectSQL();
             String query="UPDATE `produits` SET `Categorie`=?,`Etage`=?,`Nom`=?,`Prix`=?,`Date`=?,`Stock`=? WHERE idp=?";
             ps = con.prepareStatement(query);
-            ps.setInt(7,1);
-            ps.setString(6, cat.getSelectedItem().toString());
-            ps.setString(5, etage.getSelectedItem().toString());
-            ps.setString(4, nomp.getText());
-            ps.setString(3, prix.getText());
-            ps.setString(2, date.getText());
-            ps.setString(1, "En Stock");
+            
+             //update function
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+           int selectedIndex = jTable2.getSelectedRow();
+            int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
+          
+            ps.setString(1, cat.getSelectedItem().toString());
+            ps.setString(2, etage.getSelectedItem().toString());
+            ps.setString(3, nomp.getText());
+            ps.setString(4, prix.getText());
+            ps.setString(5, date.getText());
+            if( stock.isSelected()){
+               ps.setString(6, "En Stock");
+            }
             if( cmd.isSelected()){
-                ps.setString(1, "Sur Commande");
+                ps.setString(6, "Sur Commande");
             } 
             if( nondispo.isSelected()) {
-                ps.setString(1, "Non Disponible");
-            }
-            
-              
+                ps.setString(6, "Non Disponible");
+            }     
+            ps.setInt(7,id);
+     
             if(ps.executeUpdate() > 0){
-               JOptionPane.showMessageDialog(null,"Client modifié avec succès");
-               //Table();
-               nomp.setText("");
-               prix.setText("");
-               date.setText("");
+               JOptionPane.showMessageDialog(null,"Produit modifié avec succès");
+                Table();
            }else {
                 JOptionPane.showMessageDialog(null,"Error : Vérifier vos informations ");
             }                
@@ -576,27 +596,111 @@ public class AjoutProduit extends javax.swing.JFrame {
     private void jTable2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseReleased
         int j = jTable2.getSelectedRow();
         DefaultTableModel model=(DefaultTableModel) jTable2.getModel();
+         int selectedIndex = jTable2.getSelectedRow();
+        int idp = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
+     
+        cat.setSelectedItem(model.getValueAt(j,1).toString());
+        etage.setSelectedItem(model.getValueAt(j,2).toString());
+        nomp.setText(model.getValueAt(j,3).toString());
+        prix.setText(model.getValueAt(j,4).toString());
+        date.setText(model.getValueAt(j,5).toString());
         
-        
-        cat.setSelectedItem(model.getValueAt(j,0).toString());
-        etage.setSelectedItem(model.getValueAt(j,1).toString());
-        nomp.setText(model.getValueAt(j,2).toString());
-        prix.setText(model.getValueAt(j,3).toString());
-        date.setText(model.getValueAt(j,4).toString());
-        if( stock.isSelected()){
-                stock.setText(model.getValueAt(j,5).toString());
+               
+         if( model.getValueAt(j,6).equals("En Stock")){
+                stock.setSelected(true);
+                cmd.setSelected(false);
+                nondispo.setSelected(false);
          } 
-         if( cmd.isSelected()){
-                cmd.setText(model.getValueAt(j,5).toString());
+        else if( model.getValueAt(j,6).equals("Sur Commande")){
+               stock.setSelected(false);
+                cmd.setSelected(true);
+                nondispo.setSelected(false);
          } 
-         if( nondispo.isSelected()) {
-                nondispo.setText(model.getValueAt(j,5).toString());
-         }         
+         else if( model.getValueAt(j,6).equals("Non Disponible")) {
+                stock.setSelected(false);
+                cmd.setSelected(false);
+                nondispo.setSelected(true);
+         }       
     }//GEN-LAST:event_jTable2MouseReleased
+
+    private void jButtonSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSupprimerMouseClicked
+        try {
+            connectSQL();
+            String query="DELETE FROM `produits` WHERE idp=?";
+            ps = con.prepareStatement(query);
+   
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            int selectedIndex = jTable2.getSelectedRow();
+            int id = Integer.parseInt(model.getValueAt(selectedIndex, 0).toString());
+           
+            ps.setInt(1,id);          
+      
+            if(ps.executeUpdate() > 0){
+               JOptionPane.showMessageDialog(null,"Produit supprimé avec succès");
+               nomp.setText("");
+               prix.setText("");
+               date.setText("");
+               Table();
+           }else {
+                JOptionPane.showMessageDialog(null,"Error : Vérifier vos informations ");
+            }                
+        } catch(Exception e) {
+            e.printStackTrace();              
+        }
+        
+    }//GEN-LAST:event_jButtonSupprimerMouseClicked
+
+    private void jButtonRechercheMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRechercheMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRechercheMouseClicked
+
+    private void jButtonRechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercheActionPerformed
+      try {    
+        int idp = Integer.parseInt(rechercheId.getText().toString());
+        connectSQL();
+        String query="SELECT * FROM `produits` WHERE idp=?";
+        ps = con.prepareStatement(query);
+        ps.setInt(1,idp);
+        ResultSet rs=ps.executeQuery(); 
+        
+        if(rs.next() ==true) {
+           cat.setSelectedItem(rs.getString(2));
+           etage.setSelectedItem(rs.getString(3));
+           nomp.setText(rs.getString(4));
+           prix.setText(rs.getString(5));
+           date.setText(rs.getString(6));
+          
+           if( rs.getString(7).equals("En Stock")){
+                stock.setSelected(true);
+                cmd.setSelected(false);
+                nondispo.setSelected(false);
+            } 
+           else if( rs.getString(7).equals("Sur Commande")){
+                stock.setSelected(false);
+                cmd.setSelected(true);
+                nondispo.setSelected(false);
+           } 
+            else if(rs.getString(7).equals("Non Disponible")) {
+                stock.setSelected(false);
+                cmd.setSelected(false);
+                nondispo.setSelected(true);
+         }       
+           
+           
+        }else
+        {
+            JOptionPane.showMessageDialog(null,"Aucun Résultat");
+        }
+        
+       
+      } catch(Exception e) {
+            e.printStackTrace();              
+       }
+    }//GEN-LAST:event_jButtonRechercheActionPerformed
      
     public void Table() {
-        String [] produit={"Catégorie","Etage","Nom","Prix","Dtae","Stock"};
-        String [] afficher= new String[7];
+        String [] produit={"ID","Catégorie","Etage","Nom","Prix","Dtae","Stock"};
+        String [] afficher= new String[8];
         DefaultTableModel model=new DefaultTableModel(null,produit);
         try {
             connectSQL();
@@ -606,12 +710,13 @@ public class AjoutProduit extends javax.swing.JFrame {
             
             while(rs.next()){
                 
-                afficher[0]=rs.getString("Categorie");
-                afficher[1]=rs.getString("Etage");
-                afficher[2]=rs.getString("Nom");
-                afficher[3]=rs.getString("Prix");
-                afficher[4]=rs.getString("Date");
-                afficher[5]=rs.getString("Stock");
+                afficher[0]=rs.getString("idp");
+                afficher[1]=rs.getString("Categorie");
+                afficher[2]=rs.getString("Etage");
+                afficher[3]=rs.getString("Nom");
+                afficher[4]=rs.getString("Prix");
+                afficher[5]=rs.getString("Date");
+                afficher[6]=rs.getString("Stock");
                 
                 model.addRow(afficher);
             }
@@ -664,13 +769,13 @@ public class AjoutProduit extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> etage;
     private javax.swing.JButton jButtonAjouter;
     private javax.swing.JButton jButtonModifier;
+    private javax.swing.JButton jButtonRecherche;
     private javax.swing.JButton jButtonSupprimer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel3Connecter1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelAjoutClient;
@@ -687,7 +792,7 @@ public class AjoutProduit extends javax.swing.JFrame {
     private javax.swing.JTextField nomp;
     private javax.swing.JCheckBox nondispo;
     private javax.swing.JTextField prix;
+    private javax.swing.JTextField rechercheId;
     private javax.swing.JCheckBox stock;
-    private javax.swing.JTextField username3;
     // End of variables declaration//GEN-END:variables
 }
