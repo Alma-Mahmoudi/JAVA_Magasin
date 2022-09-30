@@ -12,14 +12,14 @@ import javax.swing.JFrame;
  *
  * @author asus
  */
-public class Menu extends javax.swing.JFrame {
+public class SanteBeaute extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu
+     * Creates new form SanteBeaute
      */
-    public Menu() {
+    public SanteBeaute() {
         initComponents();
-        Toolkit toolkit = getToolkit();
+         Toolkit toolkit = getToolkit();
         Dimension size= toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2 -getHeight()/2);
     }
@@ -33,77 +33,19 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFileChooser1 = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
-        jButtonSuperette = new javax.swing.JButton();
-        jButtonMaison = new javax.swing.JButton();
-        jButtonElectromenager = new javax.swing.JButton();
-        jButtonJardin = new javax.swing.JButton();
-        jButtonVetement = new javax.swing.JButton();
         jLabelExit = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
         jLabelDeconnecter = new javax.swing.JLabel();
         jLabelAjoutClient = new javax.swing.JLabel();
         jLabel3Connecter1 = new javax.swing.JLabel();
-        jButtonSante = new javax.swing.JButton();
         jLabelStockClients = new javax.swing.JLabel();
         jLabelMenu = new javax.swing.JLabel();
         jLabelAjoutProduit1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(77, 77, 77));
-
-        jButtonSuperette.setBackground(new java.awt.Color(77, 77, 77));
-        jButtonSuperette.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonSuperette.setText("Supérette");
-        jButtonSuperette.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonSuperetteMouseClicked(evt);
-            }
-        });
-
-        jButtonMaison.setBackground(new java.awt.Color(0, 153, 153));
-        jButtonMaison.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonMaison.setText("Maison & Bureau");
-        jButtonMaison.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonMaisonMouseClicked(evt);
-            }
-        });
-        jButtonMaison.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMaisonActionPerformed(evt);
-            }
-        });
-
-        jButtonElectromenager.setBackground(new java.awt.Color(0, 153, 153));
-        jButtonElectromenager.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonElectromenager.setText("Electroménager");
-        jButtonElectromenager.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonElectromenagerMouseClicked(evt);
-            }
-        });
-
-        jButtonJardin.setBackground(new java.awt.Color(153, 153, 153));
-        jButtonJardin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonJardin.setText("Jardin & Plein Air");
-        jButtonJardin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonJardinMouseClicked(evt);
-            }
-        });
-
-        jButtonVetement.setBackground(new java.awt.Color(153, 153, 153));
-        jButtonVetement.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonVetement.setText("Vêtements");
-        jButtonVetement.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonVetementMouseClicked(evt);
-            }
-        });
 
         jLabelExit.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabelExit.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,15 +95,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButtonSante.setBackground(new java.awt.Color(77, 77, 77));
-        jButtonSante.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonSante.setText("Santé & Beauté");
-        jButtonSante.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonSanteMouseClicked(evt);
-            }
-        });
-
         jLabelStockClients.setBackground(new java.awt.Color(255, 255, 255));
         jLabelStockClients.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelStockClients.setForeground(new java.awt.Color(255, 102, 0));
@@ -197,33 +130,18 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonVetement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonSante, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonElectromenager, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                            .addComponent(jButtonSuperette, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonMaison, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(jButtonJardin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(jLabel3Connecter1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                        .addComponent(jLabelMenu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelStockClients)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelAjoutProduit1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelAjoutClient, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelDeconnecter, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(62, 62, 62)
+                .addComponent(jLabel3Connecter1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113)
+                .addComponent(jLabelMenu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelStockClients)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelAjoutProduit1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelAjoutClient, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelDeconnecter, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -245,17 +163,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLabelStockClients)
                     .addComponent(jLabelMenu)
                     .addComponent(jLabelAjoutProduit1))
-                .addGap(109, 109, 109)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButtonSuperette, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonVetement, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-                    .addComponent(jButtonMaison, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonElectromenager, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                    .addComponent(jButtonJardin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonSante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -298,16 +206,11 @@ public class Menu extends javax.swing.JFrame {
         cl.setVisible(true);
         setVisible(false);
         this.dispose();
-              
     }//GEN-LAST:event_jLabelAjoutClientMouseClicked
 
     private void jLabel3Connecter1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3Connecter1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel3Connecter1MouseClicked
-
-    private void jButtonMaisonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMaisonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonMaisonActionPerformed
 
     private void jLabelStockClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStockClientsMouseClicked
         // TODO add your handling code here:
@@ -318,7 +221,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelStockClientsMouseClicked
 
     private void jLabelMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMenuMouseClicked
-       Menu menu=new Menu();
+        Menu menu=new Menu();
         menu.setVisible(true);
         setVisible(false);
         this.dispose();
@@ -327,48 +230,6 @@ public class Menu extends javax.swing.JFrame {
     private void jLabelAjoutProduit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelAjoutProduit1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelAjoutProduit1MouseClicked
-
-    private void jButtonVetementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVetementMouseClicked
-        vetements vet=new vetements();
-        vet.setVisible(true);
-        setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_jButtonVetementMouseClicked
-
-    private void jButtonSuperetteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSuperetteMouseClicked
-        Superette sup=new Superette();
-        sup.setVisible(true);
-        setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_jButtonSuperetteMouseClicked
-
-    private void jButtonMaisonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMaisonMouseClicked
-        MaisonBureau MB=new MaisonBureau();
-        MB.setVisible(true);
-        setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_jButtonMaisonMouseClicked
-
-    private void jButtonSanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSanteMouseClicked
-        SanteBeaute SB=new SanteBeaute();
-        SB.setVisible(true);
-        setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_jButtonSanteMouseClicked
-
-    private void jButtonElectromenagerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonElectromenagerMouseClicked
-        Electromenager el=new Electromenager();
-        el.setVisible(true);
-        setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_jButtonElectromenagerMouseClicked
-
-    private void jButtonJardinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonJardinMouseClicked
-        JardinPleinAir JP=new JardinPleinAir();
-        JP.setVisible(true);
-        setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_jButtonJardinMouseClicked
 
     /**
      * @param args the command line arguments
@@ -387,32 +248,25 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SanteBeaute.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SanteBeaute.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SanteBeaute.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SanteBeaute.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new SanteBeaute().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonElectromenager;
-    private javax.swing.JButton jButtonJardin;
-    private javax.swing.JButton jButtonMaison;
-    private javax.swing.JButton jButtonSante;
-    private javax.swing.JButton jButtonSuperette;
-    private javax.swing.JButton jButtonVetement;
-    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel3Connecter1;
     private javax.swing.JLabel jLabelAjoutClient;
     private javax.swing.JLabel jLabelAjoutProduit1;
